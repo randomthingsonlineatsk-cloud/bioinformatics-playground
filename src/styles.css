@@ -1,0 +1,139 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Lab-notebook palette: warm paper, deep ink, one teal accent. The four nucleotides each get a
+   fixed colour that is used the same way everywhere a base is shown. */
+:root {
+  --ink: 222 28% 14%;
+  --ink-soft: 222 12% 38%;
+  --paper: 40 30% 97%;
+  --card-bg: 0 0% 100%;
+  --line: 35 14% 85%;
+  --lab: 168 58% 26%;
+  --lab-soft: 168 38% 93%;
+  --warn: 28 90% 40%;
+  --warn-soft: 36 95% 94%;
+  --base-a: 142 58% 32%;
+  --base-c: 212 72% 46%;
+  --base-g: 34 92% 40%;
+  --base-t: 4 70% 48%;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--card-bg);
+  --card-foreground: var(--ink);
+  --popover: var(--card-bg);
+  --popover-foreground: var(--ink);
+  --primary: var(--lab);
+  --primary-foreground: 0 0% 100%;
+  --secondary: 35 18% 93%;
+  --secondary-foreground: var(--ink);
+  --muted: 35 18% 93%;
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--lab-soft);
+  --accent-foreground: var(--lab);
+  --destructive: 4 70% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--lab);
+  --chart-1: var(--lab);
+  --chart-2: var(--base-c);
+  --chart-3: var(--base-g);
+  --chart-4: var(--base-t);
+  --chart-5: var(--base-a);
+  --radius: 0.5rem;
+  --sidebar: var(--card-bg);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--lab);
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 35 18% 93%;
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--lab);
+}
+
+@theme inline {
+  --color-ink: hsl(var(--ink));
+  --color-ink-soft: hsl(var(--ink-soft));
+  --color-paper: hsl(var(--paper));
+  --color-lab: hsl(var(--lab));
+  --color-lab-soft: hsl(var(--lab-soft));
+  --color-warn: hsl(var(--warn));
+  --color-warn-soft: hsl(var(--warn-soft));
+  --color-base-a: hsl(var(--base-a));
+  --color-base-c: hsl(var(--base-c));
+  --color-base-g: hsl(var(--base-g));
+  --color-base-t: hsl(var(--base-t));
+
+  --font-display: Georgia, 'Times New Roman', ui-serif, serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Subtle ruled-paper texture behind the page, drawn from the line token. */
+.paper-grid {
+  background-image: linear-gradient(hsl(var(--line) / 0.35) 1px, transparent 1px);
+  background-size: 100% 28px;
+}
+
+body vite-error-overlay {
+  display: none;
+}
